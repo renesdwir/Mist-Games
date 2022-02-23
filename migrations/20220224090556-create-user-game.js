@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      puchased: {
+      purchased: {
         type: Sequelize.BOOLEAN
       },
       createdAt: {
