@@ -1,8 +1,14 @@
 const { User, Game, UserGame, UserDetail } = require('../models')
 
-class UserController{
+class ClientController{
+  static getHome(req, res) {
+    res.send('hello')
+  }
+  static getClient(req, res) {
+    res.redirect('/clients/shop')
+  }
   static getRegister(req, res) {
-    res.render('register')
+    // res.render('register')
   }
   static postRegister(req, res) {
     const { username, password } = req.body
@@ -48,4 +54,4 @@ class UserController{
   }
 }
 
-module.exports = UserController
+module.exports = ClientController

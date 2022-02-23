@@ -11,10 +11,25 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      UserGame.belongsTo(models.User, { 
+        foreignKey: "UserId",
+        targetKey: "id"
+      });
+      
+      UserGame.belongsTo(models.Game, { 
+        foreignKey: "GameId",
+        targetKey: "id"
+      });
     }
   }
   UserGame.init({
-    puchased: DataTypes.BOOLEAN
+    purchased: DataTypes.BOOLEAN,
+    UserId: {
+      type: DataTypes.INTEGER,
+    },
+    GameId: {
+      type: DataTypes.INTEGER,
+    }
   }, {
     sequelize,
     modelName: 'UserGame',
