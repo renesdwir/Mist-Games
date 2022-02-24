@@ -33,5 +33,6 @@ const isAdmin = (req, res, next) => {
 module.exports = {
   isLoggedIn,
   isAdmin,
-  isClient
+  isClient,
+  clientsLoggedIn
 }

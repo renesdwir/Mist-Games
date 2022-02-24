@@ -4,12 +4,12 @@ const UserController = require('../controllers/UserController');
 const GameController = require('../controllers/GameController')
 const adminRouter = require('./adminRoute');
 const clientRouter = require('./clientRoute');
-const { isAdmin, isClient, isLoggedIn } = require('../middleware/session');
+const { isAdmin, isClient, isLoggedIn, clientsLoggedIn } = require('../middleware/session');
 
 
 router.get('/', UserController.getHome);
 router.get('/login', UserController.getLogin);
-router.post('/login', UserController.postLogin);
+router.post('/login',UserController.postLogin);
 router.get('/register', UserController.getRegister);
 router.get('/shop', GameController.getGames)
 router.get('/shop/:GameId', GameController.getGameDetail)
