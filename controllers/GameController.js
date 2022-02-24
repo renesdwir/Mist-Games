@@ -35,14 +35,14 @@ class GameController{
         model: User,
         where: {
           id: UserId
-        }
+        },
+        required:false
       }
     };
-
+    
     Game.findByPk(GameId, options)
-      .then(game => {
+    .then(game => {
         game.size = Game.formatSize(game.size)
-        console.log(login)
         res.render('gamedetail', { game, page, login })
       })
       .catch(err => {
