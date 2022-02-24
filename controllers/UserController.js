@@ -1,6 +1,6 @@
 const { User, Game, UserGame, UserDetail } = require('../models')
 
-class ClientController{
+class UserController{
   static getHome(req, res) {
     res.send('hello')
   }
@@ -65,4 +65,4 @@ class ClientController{
   }
 }
 
-module.exports = ClientController
+module.exports = UserController
