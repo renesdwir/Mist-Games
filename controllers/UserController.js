@@ -1,8 +1,26 @@
 const { User, Game, UserGame, UserDetail } = require('../models')
+const { compare } = require('../helper/bcrypt')
 
 class UserController{
   static getHome(req, res) {
-    res.render('home', { page: "home" })
+    const login = req.session.UserId ? 'true' : 'false';
+    if(login === 'true'){
+      const options = {
+        include: {
+          model: UserDetail
+        }
+      }
+      User.findByPk(req.session.UserId, options)
+        .then(user => {
+          res.render('home', { page: "home", login, user })
+        })
+        .catch(err => {
+          console.log(err)
+          res.send(err)
+        })
+    } else {
+      res.render('home', { page: "home", login })
+    }
   }
   static getClient(req, res) {
     res.redirect('/clients/shop')
@@ -32,8 +50,8 @@ class UserController{
   }
   static getLogin(req, res){
     const { err } = req.query
-    const arrErr = err.split(';')
-    res.render('login', { arrErr })
+    const arrErr = err && err.split(';')
+    res.render('signin', { arrErr })
   }
   static postLogin(req, res){
     const { username, password } = req.body;
@@ -44,19 +62,16 @@ class UserController{
           return
         }
         if(compare(password, user.password)){
-          req.session = {
-            ...req.session,
-            UserId: user.id,
-            role: user.role
-          }
-          res.send(req.session)
+          req.session.UserId = user.id
+          req.session.role = user.role
+          res.redirect('/')
           return
         }
         res.redirect('/login?err=Wrong%Password')
       })
       .catch(err => {
-        if(err.name = 'SequelizeValidationError'){
-          err = err.errors.map(el => el.message).join(';')
+        if(err.name === 'SequelizeValidationError'){
+          err = err.errors && err.errors.map(el => el.message).join(';')
           res.redirect(`/login?err=${err}`)
           return
         }
