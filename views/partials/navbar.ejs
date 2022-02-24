@@ -51,9 +51,9 @@
             <button type="submit"
                 class=" <%=locals.login === "true" ? "" : "hidden" %> flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
-                <img class="w-8 h-8 rounded-full" src="user.jpg" alt="user photo">
+                <img class="w-8 h-8 rounded-full" src="/user.jpg" alt="user photo">
             </button>
-            <a type="button" href="/login" <% console.log(locals.login) %>
+            <a type="button" href="/login"
                 class="<%=locals.login === "true" ? "hidden" : "" %> text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign
                 In
             </a>
