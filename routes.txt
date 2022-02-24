@@ -14,3 +14,5 @@ post /admins/:UserId/shop/add
 get /admins/:UserId/shop/:GamesId/delete
 get /admins/:UserId/shop/:GamesId/edit
 post /admins/:UserId/shop/:GamesId/edit
+get /admins/:UserId/addAdmin
+post admins/:UserId/addAdmin

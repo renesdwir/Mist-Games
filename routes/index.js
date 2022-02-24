@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router();
-const { GameController, UserController } = require('../controllers')
+const UserController = require('../controllers/UserController')
+const GameController = require('../controllers/GameController')
 
 router.get('/', UserController.getHome)
