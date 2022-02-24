@@ -7,6 +7,7 @@
 4. ketika mencet buy auto add ke my games, cuma blm ke purcashed, dan di redirect
    ke trasaction konfirm payment, konfirm by code, dan auto add ke history buy
 5. game yang udh ke purchased ada tombol install dan view detail lagi
+6. test
 
 
 daftar page: 
