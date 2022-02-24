@@ -8,7 +8,9 @@ class ClientController{
     res.redirect('/clients/shop')
   }
   static getRegister(req, res) {
-    // res.render('register')
+    const { err } = req.query
+    const arrErr = err.split(';')
+    res.render('register', { arrErr })
   }
   static postRegister(req, res) {
     const { username, password } = req.body
@@ -20,8 +22,8 @@ class ClientController{
         res.redirect('/register?err=Username%already%exists')
         return
       }
-      const role = req.session ? 'admin' : 'client'
-      return User.create({ username, password })
+      const role = req.session ? 'admin' : null;
+      return User.create({ username, password, role })
     })
     .then(() => {
       res.redirect('/login')
@@ -29,8 +31,9 @@ class ClientController{
     .catch(err => res.send(err))
   }
   static getLogin(req, res){
-    const { err } = req.query;
-    res.render('login', { err })
+    const { err } = req.query
+    const arrErr = err.split(';')
+    res.render('login', { arrErr })
   }
   static postLogin(req, res){
     const { username, password } = req.body;
@@ -50,6 +53,14 @@ class ClientController{
           return
         }
         res.redirect('/login?err=Wrong%Password')
+      })
+      .catch(err => {
+        if(err.name = 'SequelizeValidationError'){
+          err = err.errors.map(el => el.message).join(';')
+          res.redirect(`/login?err=${err}`)
+          return
+        }
+        res.send(err)
       })
   }
 }

@@ -33,6 +33,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'UserGame',
+    hooks: {
+      beforeCreate(userGame){
+        userGame.purchased = false
+      }
+    }
   });
   return UserGame;
 };

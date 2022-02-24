@@ -2,7 +2,7 @@ get /home
 get /clients
 get /clients/shop
 get /clients/shop/:GamesId/
-post /clients/shop/:GamesId/
+get /clients/shop/:GamesId/buy
 get /clients/myGames
 get /clients/myGames/:GamesId/
 post /clients/myGames/:GamesId/checkout
@@ -11,6 +11,7 @@ post /clients/myGames/:GamesId/cancel
 get /admins/shop
 get /admins/shop/add
 post /admins/shop/add
+get /admins/shop/:GamesId/
 get /admins/shop/:GamesId/delete
 get /admins/shop/:GamesId/edit
 post /admins/shop/:GamesId/edit

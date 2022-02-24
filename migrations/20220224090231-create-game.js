@@ -20,7 +20,6 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      
       image: {
         type: Sequelize.STRING
       },
