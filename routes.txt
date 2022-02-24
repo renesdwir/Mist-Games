@@ -1,0 +1,16 @@
+get /home
+get /customers
+get /customers/:UserId/myGames
+get /customers/:UserId/myGames/:GamesId/
+post /customers/:UserId/myGames/:GamesId/checkout
+post /customers/:UserId/myGames/:GamesId/cancel
+get /customers/:UserId/shop
+get /customers/:UserId/shop/:GamesId/
+post /customers/:UserId/shop/:GamesId/
+
+get /admins/:UserId/shop
+get /admins/:UserId/shop/add
+post /admins/:UserId/shop/add
+get /admins/:UserId/shop/:GamesId/delete
+get /admins/:UserId/shop/:GamesId/edit
+post /admins/:UserId/shop/:GamesId/edit
