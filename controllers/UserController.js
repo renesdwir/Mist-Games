@@ -18,7 +18,7 @@ class UserController{
       username
     }})
     .then(num => {
-      if(num > 0){
+      if(num > 0) {
         res.redirect('/register?err=Username%already%exists')
         return
       }
@@ -62,6 +62,21 @@ class UserController{
         }
         res.send(err)
       })
+  }
+  static getMyGames(req, res){
+    const { UserId } = req.session;
+    const page = 'MyGames'
+    User.findById(UserId, {
+      include: {
+        model: Game
+      }
+    })
+    .then(user => {
+      res.render('myGames', { user, page })
+    })
+    .catch(err => {
+      res.send(err)
+    })
   }
 }
 

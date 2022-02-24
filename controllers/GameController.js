@@ -38,6 +38,7 @@ class GameController{
 
     Game.findByPk(GameId, options)
       .then(game => {
+        game.size = Game.formatSize(game.size)
         res.render('gameDetail', { game })
       })
       .catch(err => {

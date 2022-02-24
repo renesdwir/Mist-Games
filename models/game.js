@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static formatSize(num) {
+      num = num / 1000
+      return (Math.floor(num * 100) / 100) + 'GB'
+    }
+
     get formatRupiah() {
       return (this.price).toLocaleString('id-ID', {
         style: 'currency',
