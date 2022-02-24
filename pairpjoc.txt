@@ -1,0 +1,20 @@
+1. pertama yang dibuka adalah landing page, 
+  ada navbar (home, shop, my games, history buy) log in
+  ada landingpage CTA get started menuju ke shop, sama about us dibawahnya, dan footer
+
+2. di shop banyak pilihan game dan search
+3. ketika game di shop diclick, menuju ke game detail ada cta buy dan chart,
+4. ketika mencet buy auto add ke my games, cuma blm ke purcashed, dan di redirect
+   ke trasaction konfirm payment, konfirm by code, dan auto add ke history buy
+5. game yang udh ke purchased ada tombol install dan view detail lagi
+
+
+daftar page: 
+1. sign in
+2. sign up
+3. landingpage home,
+4. shop
+5. game detail,
+6. my games 
+7. history buy
+8. profile => logout 
