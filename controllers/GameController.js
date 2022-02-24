@@ -17,7 +17,7 @@ class GameController{
     }
   Game.findAll(options)
     .then(games => {
-      res.render('shop', { games, page, login })
+      res.render('shop', { games, page, login, role })
     })
     .catch(err => {
       res.send(err)
