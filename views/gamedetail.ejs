@@ -5,35 +5,38 @@
 
 <body class="bg-gray-800">
     <div class="container mx-auto flex justify-center">
-        <div
-            class="flex flex-col justify-between mt-10 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 relative   ">
-            <a href="/clients/shop"
-                class="absolute hover:bg-red-600 w-5 h-5 text-center rounded-tl-lg top-0 left-0 text-white">&#10006;</a>
-            <a href="#">
-                <img class="rounded-t-lg" src="<%=game.image%>" alt="" />
-            </a>
-            <div class="p-5">
+        <% if(game.Users.length > 0) {%>
+
+            <div
+                class="flex flex-col justify-between mt-10 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 relative   ">
+                <a href="/clients/shop"
+                    class="absolute hover:bg-red-600 w-5 h-5 text-center rounded-tl-lg top-0 left-0 text-white">&#10006;</a>
                 <a href="#">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%=game.name %>  <span class="text-sm">(<%=game.size%>)</span></h5>
+                    <img class="rounded-t-lg" src="<%=game.image%>" alt="" />
                 </a>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify"><%=game.description%></p>
-                <div class="flex flex-row justify-between">
-                    <p class="<%=game.Users[0].UserGame.purchased === true ? "hidden" : ""%> text-xl font-bold text-green-600 dark:text-white">Rp. 50.000,00</p>
-                    <a href="" class="<%=game.Users[0].UserGame.purchased === true ? "" : "hidden"%>  inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Now</a>
-                    <div>
-                        <p class="<%=game.Users[0].UserGame.purchased === true ? "" : "hidden"%> text-gray-600 font-bold">Purchased</p>
-                        <a href="" 
-                            class="<%=game.Users[0].UserGame.purchased === true ? "hidden" : ""%> inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Buy Now
-                        </a>
-                        <a href="#"
-                            class="<%=game.Users[0].UserGame.purchased === true ? "hidden" : ""%> inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
-                            Delete
-                        </a>
+                <div class="p-5">
+                    <a href="#">
+                        <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"><%=game.name %>  <span class="text-sm">(<%=game.size%>)</span></h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700 dark:text-gray-400 text-justify"><%=game.description%></p>
+                    <div class="flex flex-row justify-between">
+                        <p class="<%=game.Users[0].UserGame.purchased === true ? "hidden" : "" %> text-xl font-bold text-green-600 dark:text-white">Rp. 50.000,00</p>
+                        <a href="" class="<%=game.Users[0].UserGame.purchased === true ? "" : "hidden" %>  inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Download Now</a>
+                        <div>
+                            <p class="<%=game.Users[0].UserGame.purchased === true ? "" : "hidden" %> text-gray-600 font-bold">Purchased</p>
+                            <a href="/clients/myGames/<%=game.id%>/checkout" 
+                                class="<%=game.Users[0].UserGame.purchased === true ? "hidden" : "" %> inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Buy Now
+                            </a>
+                            <a href="/clients/myGames/<%=game.id%>/delete"
+                                class="<%=game.Users[0].UserGame.purchased === true ? "hidden" : "" %> inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:ring-red-300 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800">
+                                Delete
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+<%}%> 
     </div>
 </body>
 

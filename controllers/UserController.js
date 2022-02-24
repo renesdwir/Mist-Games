@@ -1,5 +1,6 @@
 const { User, Game, UserGame, UserDetail } = require('../models')
 const { compare } = require('../helper/bcrypt');
+const { Op } = require('sequelize')
 
 class UserController{
   static getHome(req, res) {

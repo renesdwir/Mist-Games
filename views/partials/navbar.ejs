@@ -30,7 +30,7 @@
                         aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="/<%= locals.login === "true" ? 'clients/shop' : 'shop' %>"
+                    <a href="/<%= locals.login === "true" ? (locals.user.role === "admin" ? 'admins/shop' : 'clients/shop') : 'shop' %>"
                         class="text-base block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 <%=locals.page === "shop" ? "md:text-blue-700" : "" %>">Shop</a>
                 </li>
                 <li>
