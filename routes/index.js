@@ -8,9 +8,9 @@ const { isAdmin, isClient, isLoggedIn, clientsLoggedIn } = require('../middlewar
 
 
 router.get('/', UserController.getHome);
-router.get('/login', UserController.getLogin);
+router.get('/login', clientsLoggedIn, UserController.getLogin);
 router.post('/login',UserController.postLogin);
-router.get('/register', UserController.getRegister);
+router.get('/register', clientsLoggedIn, UserController.getRegister);
 router.get('/shop', GameController.getGames)
 router.get('/shop/:GameId', GameController.getGameDetail)
 
