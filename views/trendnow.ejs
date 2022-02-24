@@ -8,9 +8,27 @@
 
 
     <div class="container m-auto bg-blue-200 flex justify-center h-96 mt-24">
-        
+        <canvas id=""></canvas>
     </div>
     <%-include("./partials/footer.ejs")%>
+    <script>
+    const data = {
+        labels: [
+            'Red',
+            'Yellow'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+        };
+    </script>
 </body>
 
 </html>

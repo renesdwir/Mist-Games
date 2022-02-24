@@ -145,6 +145,9 @@ class UserController{
         res.send(err)
       })
   }
+  static getTrendGames(req, res){
+    res.render('trendnow')
+  }
 }
 
 module.exports = UserController

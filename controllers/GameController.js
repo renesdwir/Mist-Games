@@ -27,8 +27,9 @@ class GameController{
   static getGameDetail(req, res) {
     const { GameId } = req.params;
     const page = 'shop'
-    const role = req.session && req.session.role
     const UserId = req.session && role === 'client' ? req.session.UserId : null;
+    const role = req.session && req.session.role
+    const user = { role }
     const login = role ? 'true' : 'false'
     let options = {}
     if(UserId){
@@ -44,7 +45,7 @@ class GameController{
     Game.findByPk(GameId, options)
       .then(game => {
           game.size = Game.formatSize(game.size)
-          res.render('gamedetail', { game, page, login, role })
+          res.render('gamedetail', { game, page, login, user })
         })
         .catch(err => {
           res.send(err)
@@ -74,7 +75,9 @@ class GameController{
   static getAddGame(req, res){
     const { err } = req.query
     const inputErr = err.split(';')
-    res.send('formAdd', { inputErr })
+    const role = req.session && req.session.role
+    const user = { role }
+    res.send('formAdd', { inputErr, user })
   }
   static postAddGame(req, res){
     const { name, size, price, description, image } = req.body;
