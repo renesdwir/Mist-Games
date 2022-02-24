@@ -41,13 +41,13 @@ class GameController{
     };
     
     Game.findByPk(GameId, options)
-    .then(game => {
-        game.size = Game.formatSize(game.size)
-        res.render('gamedetail', { game, page, login })
-      })
-      .catch(err => {
-        res.send(err)
-      })
+      .then(game => {
+          game.size = Game.formatSize(game.size)
+          res.render('gamedetail', { game, page, login, role })
+        })
+        .catch(err => {
+          res.send(err)
+        })
   }
   static getBuyGame(req, res) {
     const { GameId } = req.params;
