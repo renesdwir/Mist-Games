@@ -31,7 +31,7 @@ class UserController{
     res.render('register', { arrErr })
   }
   static postRegister(req, res) {
-    const { username, password } = req.body
+    const { username, password, firstName, lastName, email, country } = req.body
     User.count({ where: {
       username
     }})
@@ -41,9 +41,12 @@ class UserController{
         return
       }
       const role = req.session ? 'admin' : null;
-      return User.create({ username, password, role })
+      return User.create({ username, password, role }, { returning: true })
     })
-    .then(() => {
+    .then(user => {
+      return UserDetail.create({ firstName, lastName, email, country, UserId: user.id })
+    })
+    .then(()=>{
       res.redirect('/login')
     })
     .catch(err => res.send(err))
@@ -62,6 +65,7 @@ class UserController{
           return
         }
         if(compare(password, user.password)){
+
           req.session.UserId = user.id
           req.session.role = user.role
           res.redirect('/')
@@ -88,56 +92,13 @@ class UserController{
     }
     UserDetail.findOne({ include })
       .then(userDetail => {
-        if(!userDetail){
-          res.render('adduserdetail')
-        }
         res.render('userdetail', { userDetail })
       })
       .catch(err => {
         res.send(err)
       })
   }
-  static postAddUserDetail(req, res){
-    const { UserId } = req.session;
-    const { firstName, lastName, email, country } = req.body;
-    UserDetail.create({ firstName, lastName, email, country, UserId })
-      .then(() => {
-        res.redirect('/clients/userDetail')
-      })
-      .catch(err => {
-        res.send(err)
-      })
-  }
-  static getEditUserDetail(req, res) {
-    const { UserId } = req.session;
-    const include = {
-      model: User,
-      where: {
-        id: UserId
-      }
-    }
-    UserDetail.findOne({ include })
-      .then(userDetail => {
-        if(!userDetail){
-          res.render('adduserdetail')
-        }
-        res.render('edituserdetail', { userDetail })
-      })
-      .catch(err => {
-        res.send(err)
-      })
-  }
-  static postAddUserDetail(req, res){
-    const { UserId } = req.session;
-    const { firstName, lastName, email, country } = req.body;
-    UserDetail.update({ firstName, lastName, email, country, UserId })
-      .then(() => {
-        res.redirect('/clients/userDetail')
-      })
-      .catch(err => {
-        res.send(err)
-      })
-  }
+
   static getMyGames(req, res){
     const { UserId } = req.session;
     const page = 'mygames'
