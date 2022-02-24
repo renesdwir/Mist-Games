@@ -80,18 +80,47 @@ class UserController{
   }
   static getMyGames(req, res){
     const { UserId } = req.session;
-    const page = 'MyGames'
-    User.findById(UserId, {
+    const page = 'mygames'
+    User.findByPk(UserId, {
       include: {
         model: Game
       }
     })
     .then(user => {
-      res.render('myGames', { user, page })
+      const games = user.Games
+      res.render('mygames', { user, page, games })
     })
     .catch(err => {
       res.send(err)
     })
+  }
+  static getCheckoutGame(req, res){
+    const { UserId } = req.session;
+    const { GameId } = req.params;
+    const where = {
+      [Op.and]: [{UserId}, {GameId}]
+    }
+    UserGame.update({purchased: true},{ where } )
+      .then(() => {
+        res.redirect('/clients/myGames')
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+  static getDeleteCheckoutGame(req, res){
+    const { UserId } = req.session;
+    const { GameId } = req.params;
+    const where = {
+      [Op.and]: [{UserId}, {GameId}]
+    }
+    UserGame.destroy({ where })
+      .then(() => {
+        res.redirect('/clients/myGames')
+      })
+      .catch(err => {
+        res.send(err)
+      })
   }
 }
 
