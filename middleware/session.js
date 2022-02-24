@@ -5,6 +5,15 @@ const isLoggedIn = (req, res, next) => {
   }
   res.redirect('/login?err=Please login first')
 }
+
+const clientsLoggedIn = (req, res, next) => {
+  if(req.session && req.session.role === 'client'){
+    res.redirect('/clients/shop')
+    return
+  }
+  next()
+}
+
 const isClient = (req, res, next) => {
   if(req.session && req.session.role === 'client'){
     next()
