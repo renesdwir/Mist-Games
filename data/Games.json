@@ -1,0 +1,37 @@
+[
+    {
+        "name" : "Valorant",
+        "size" : 2000,
+        "price" : 50000,
+        "image" : "https://seeklogo.com/images/V/valorant-logo-FAB2CA0E55-seeklogo.com.png",
+        "description": "Valorant adalah penembak taktis berbasis tim. Dalam mode permainan utama, pemain ditugaskan ke tim menyerang atau bertahan dengan masing-masing tim memiliki lima pemain di dalamnya."
+    },
+    {
+        "name" : "Grand Theft Auto V",
+        "size" : 2000,
+        "price" : 50000,
+        "image" : "https://logowik.com/content/uploads/images/grand-theft-auto-v8194.jpg",
+        "description": "Grand Theft Auto V for PC offers players the option to explore the award-winning world of Los Santos and Blaine County in resolutions of up to 4k and beyond, as well as the chance to experience the game running at 60 frames per second."
+    },
+    {
+        "name" : "Getting Over It with Bennett Foddy",
+        "size" : 2000,
+        "price" : 50000,
+        "image" : "https://cdn.cloudflare.steamstatic.com/steam/apps/240720/header.jpg?t=1577387341",
+        "description": "A game I made for a certain kind of person. To hurt them."
+    },
+    {
+        "name" : "Among Us",
+        "size" : 2000,
+        "price" : 50000,
+        "image" : "https://cdn.cloudflare.steamstatic.com/steam/apps/945360/header.jpg?t=1639121898",
+        "description": "An online and local party game of teamwork and betrayal for 4-15 players...in space!"
+    },
+    {
+        "name" : "Forza Horizon 5",
+        "size" : 2000,
+        "price" : 50000,
+        "image" : "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg?t=1645561560",
+        "description": "Your Ultimate Horizon Adventure awaits! Explore the vibrant and ever-evolving open world landscapes of Mexico with limitless, fun driving action in hundreds of the worlds greatest cars"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "email": "admin@gmail.com",
+        "firstName": "admin",
+        "lastName": "ganteng",
+        "country": "Indonesia",
+        "UserId": 1
+    },
+    {
+        "email": "client1@gmail.com",
+        "firstName": "Uvuvwevwevwe",
+        "lastName": "Ugwemubwen Osas",
+        "country": "Africa",
+        "UserId": 2
+    },
+    {
+        "email": "client2@gmail.com",
+        "firstName": "Andai",
+        "lastName": "Aku Jadi Kekasihmu",
+        "country": "Indonesia",
+        "UserId": 3
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "UserId": 1,
+        "GamesId": 1,
+        "purchased": true
+    },
+    {
+        "UserId": 2,
+        "GamesId": 2,
+        "purchased": true
+    },
+    {
+        "UserId": 2,
+        "GamesId": 3,
+        "purchased": true
+    },
+    {
+        "UserId": 2,
+        "GamesId": 4,
+        "purchased": false
+    },
+    {
+        "UserId": 3,
+        "GamesId": 5,
+        "purchased": false
+    },
+    {
+        "UserId": 2,
+        "GamesId": 5,
+        "purchased": true
+    },
+    {
+        "UserId": 3,
+        "GamesId": 4,
+        "purchased": false
+    }
+]
