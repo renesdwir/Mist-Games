@@ -6,13 +6,14 @@
 <body>
     <%-include("./partials/navbar.ejs")%>
 
-
+    
     <div class="container m-auto bg-blue-200 flex justify-center h-96 mt-24">
-        <canvas id=""></canvas>
+        <canvas id="myChart"></canvas>
     </div>
     <%-include("./partials/footer.ejs")%>
     <script>
-    const data = {
+        const ctx = document.getElementById('myChart')
+        const data = {
         labels: [
             'Red',
             'Yellow'
@@ -28,6 +29,10 @@
             hoverOffset: 4
         }]
         };
+        const myChart = new Chart(ctx, {
+            type: 'pie',
+            data
+        })
     </script>
 </body>
 

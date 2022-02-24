@@ -27,8 +27,8 @@ class GameController{
   static getGameDetail(req, res) {
     const { GameId } = req.params;
     const page = 'shop'
-    const UserId = req.session && role === 'client' ? req.session.UserId : null;
     const role = req.session && req.session.role
+    const UserId = req.session && role === 'client' ? req.session.UserId : null;
     const user = { role }
     const login = role ? 'true' : 'false'
     let options = {}
@@ -123,7 +123,9 @@ class GameController{
         res.send(err)
       })
   }
-  static get
+  static getTrendGame(req, res){
+    res.render('trendnow')
+  }
 
 }
 

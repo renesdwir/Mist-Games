@@ -12,7 +12,8 @@ router.get('/login', clientsLoggedIn, UserController.getLogin);
 router.post('/login',UserController.postLogin);
 router.get('/register', clientsLoggedIn, UserController.getRegister);
 router.get('/shop', GameController.getGames)
-router.get('/shop/:GameId', GameController.getGameDetail)
+router.get('/shop/:GameId', GameController.getGameDetail);
+router.get('/trendGame', GameController.getTrendGame);
 
 router.use(isLoggedIn)
 
