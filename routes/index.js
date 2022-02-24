@@ -1,14 +1,18 @@
-const express = require('express')
+const express = require('express');
 const router = express.Router();
-const ClientController = require('../controllers/ClientController')
-const adminRouter = require('./adminRoute')
-const clientRouter = require('./clientRoute')
+const UserController = require('../controllers/UserController');
+const adminRouter = require('./adminRoute');
+const clientRouter = require('./clientRoute');
+const { isAdmin, isClient, isLoggedIn } = require('../middleware/session');
 
-router.get('/', ClientController.getHome)
-router.get('/login', ClientController.getLogin)
-router.get('/register', ClientController.getRegister)
 
-router.use('/clients', clientRouter)
-router.use('/admins', adminRouter)
+router.get('/', UserController.getHome)
+router.get('/login', UserController.getLogin)
+router.get('/register', UserController.getRegister)
+
+router.use(isLoggedIn)
+
+router.use('/clients', isClient, clientRouter)
+router.use('/admins', isAdmin, adminRouter)
 
 module.exports = router
