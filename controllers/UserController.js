@@ -66,9 +66,9 @@ class UserController{
           return
         }
         if(compare(password, user.password)){
-
           req.session.UserId = user.id
           req.session.role = user.role
+          console.log(req.session)
           res.redirect('/')
           return
         }

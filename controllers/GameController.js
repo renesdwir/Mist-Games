@@ -8,6 +8,7 @@ class GameController{
     const login = role ? 'true' : 'false'
     const page = 'shop'
     search = search || ''
+    const user = { role }
     const options = {
       where: {
         name:{
@@ -17,7 +18,7 @@ class GameController{
     }
   Game.findAll(options)
     .then(games => {
-      res.render('shop', { games, page, login, role })
+      res.render('shop', { games, page, login, user })
     })
     .catch(err => {
       res.send(err)
@@ -119,6 +120,7 @@ class GameController{
         res.send(err)
       })
   }
+  static get
 
 }
 
