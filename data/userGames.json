@@ -1,37 +1,37 @@
 [
     {
         "UserId": 1,
-        "GamesId": 1,
+        "GameId": 1,
         "purchased": true
     },
     {
         "UserId": 2,
-        "GamesId": 2,
+        "GameId": 2,
         "purchased": true
     },
     {
         "UserId": 2,
-        "GamesId": 3,
+        "GameId": 3,
         "purchased": true
     },
     {
         "UserId": 2,
-        "GamesId": 4,
+        "GameId": 4,
         "purchased": false
     },
     {
         "UserId": 3,
-        "GamesId": 5,
+        "GameId": 5,
         "purchased": false
     },
     {
         "UserId": 2,
-        "GamesId": 5,
+        "GameId": 5,
         "purchased": true
     },
     {
         "UserId": 3,
-        "GamesId": 4,
+        "GameId": 4,
         "purchased": false
     }
 ]
