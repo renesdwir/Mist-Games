@@ -9,6 +9,12 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    get formatRupiah() {
+      return (this.price).toLocaleString('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+      });
+    }
     static associate(models) {
       // define association here
       Game.belongsToMany(models.User, {
@@ -18,10 +24,75 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Game.init({
-    name: DataTypes.STRING,
-    size: DataTypes.INTEGER,
-    price: DataTypes.INTEGER,
-    description: DataTypes.TEXT
+    name:{
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        notNull:{
+          msg:"Please fill game name"
+        },
+        notEmpty:{
+          msg:"Please fill  game name"
+        }
+      }
+    },
+    size: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNumeric:{
+          msg: "Please fill game price with number"
+        },
+        notNull:{
+          msg:"Please fill game size"
+        },
+        notEmpty:{
+          msg:"Please fill game size"
+        }
+      }
+    },
+    price: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        isNumeric:{
+          msg: "Please fill game price with number"
+        },
+        notNull:{
+          msg:"Please fill game price"
+        },
+        notEmpty:{
+          msg:"Please fill game price"
+        }
+      }
+    },
+    description: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+      validate: {
+        notNull:{
+          msg:"Please fill description"
+        },
+        notEmpty:{
+          msg:"Please fill description"
+        }
+      }
+    },
+    image: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        isUrl: {
+          msg:"Please fill image with URL"
+        },
+        notNull:{
+          msg:"Please fill image"
+        },
+        notEmpty:{
+          msg:"Please fill image"
+        }
+      }
+    }
   }, {
     sequelize,
     modelName: 'Game',
