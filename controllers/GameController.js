@@ -103,7 +103,7 @@ class GameController{
         res.send(err)
       })
   }
-  static postAddGame(req, res){
+  static postEditGame(req, res){
     const { name, size, price, description, image } = req.body;
     const { GameId } = req.params;
     Game.update({ name, size, price, description, image }, { where: { GameId } })
