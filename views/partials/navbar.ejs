@@ -25,12 +25,12 @@
         <div class="justify-between items-center w-full md:flex md:w-auto md:order-1" id="mobile-menu-2">
             <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
                 <li>
-                    <a href="#"
+                    <a href="/"
                         class="text-base block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 <%=locals.page === "home" ? "md:text-blue-700" : "" %>"
                         aria-current="page">Home</a>
                 </li>
                 <li>
-                    <a href="#"
+                    <a href="/<%= locals.login === "true" ? 'clients/shop' : 'shop' %>"
                         class="text-base block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 <%=locals.page === "shop" ? "md:text-blue-700" : "" %>">Shop</a>
                 </li>
                 <li>
@@ -48,14 +48,15 @@
 
         <!-- logo user / sign in -->
         <div class="flex items-center md:order-2">
-            <button type="button"
+            <button type="submit"
                 class=" <%=locals.login === "true" ? "" : "hidden" %> flex mr-3 text-sm bg-gray-800 rounded-full md:mr-0 focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
                 id="user-menu-button" aria-expanded="false" type="button" data-dropdown-toggle="dropdown">
                 <img class="w-8 h-8 rounded-full" src="user.jpg" alt="user photo">
             </button>
-            <button type="button"
+            <a type="button" href="/login" <% console.log(locals.login) %>
                 class="<%=locals.login === "true" ? "hidden" : "" %> text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center">Sign
-                In</button>
+                In
+            </a>
         </div>
         <!-- end logo user / sign in -->
     </div>

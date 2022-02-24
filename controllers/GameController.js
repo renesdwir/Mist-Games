@@ -4,18 +4,20 @@ const { Op } = require('sequelize')
 class GameController{
   static getGames(req, res) {
     let { search } = req.query;
+    const role = req.session && req.session.role
+    const login = role ? 'true' : 'false'
     const page = 'shop'
     search = search || ''
     const options = {
       where: {
         name:{
-          [Op.iLike]: `%${search}%`
+          [Op.iLike]: `%${search}%`,
         }
       }
     }
   Game.findAll(options)
     .then(games => {
-      res.render('shop', { games, page })
+      res.render('shop', { games, page, login })
     })
     .catch(err => {
       res.send(err)
@@ -26,6 +28,7 @@ class GameController{
     const page = 'shop'
     const role = req.session && req.session.role
     const UserId = req.session && role === 'client' ? req.session.UserId : null;
+    const login = role ? 'true' : 'false'
     let options = {}
     if(UserId){
       options.include = {
@@ -39,7 +42,8 @@ class GameController{
     Game.findByPk(GameId, options)
       .then(game => {
         game.size = Game.formatSize(game.size)
-        res.render('gameDetail', { game })
+        console.log(login)
+        res.render('gameDetail', { game, page, login })
       })
       .catch(err => {
         res.send(err)
