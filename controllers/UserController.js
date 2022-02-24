@@ -2,7 +2,7 @@ const { User, Game, UserGame, UserDetail } = require('../models')
 
 class UserController{
   static getHome(req, res) {
-    res.send('hello')
+    res.render('home', { page: "home" })
   }
   static getClient(req, res) {
     res.redirect('/clients/shop')
