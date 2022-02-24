@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In</title>
-    <link rel="icon" href="../assets/logo white.png" type="image/icon type">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
+
+    <%-include("./partials/head.ejs")%>
+
+<body class="">
     <div class=" mx-auto w-6/12 p-10 ">
         <form action="" method="post" class="border-2 p-7 rounded-lg">
             <div class="mb-6 flex justify-center flex-col text-center">
@@ -22,23 +17,27 @@
                         </svg>
                 </div>
             </div>
-            <h4 class="font-bold mb-6">SIGN IN WITH MIST GAMES ACCOUNT</h4>
+            <h4 class="font-bold mb-6">Checkout</h4>
             <div class="mb-6">
-              <label for="username" class="block mb-2 text-sm font-medium text-gray-900 ">Username</label>
-              <input type="text" name="username" id="username" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Username" required>
+              <label for="via" class="block mb-2 text-sm font-medium text-gray-900 ">Via</label>
+              <select id="via" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option>OVO</option>
+                <option>GOPAY</option>
+                <option>BCA</option>
+              </select>
             </div>
             <div class="mb-6">
-              <label for="password" class="block mb-2 text-sm font-medium text-gray-900 ">Password</label>
-              <input type="password" name="password" id="password" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="Password" required>
+              <label for="rekening" class="block mb-2 text-sm font-medium text-gray-900 ">No.Rekening</label>
+              <input type="rekening" name="rekening" id="rekening" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  placeholder="No.rekening" required>
             </div>
             <div class="mb-6 flex justify-center">
-                <button type="submit" class="px-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto py-2.5 text-center ">LOG IN NOW</button>
+                <button type="submit" class="px-20 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto py-2.5 text-center ">Pay Now</button>
             </div>
             <div class=" flex flex-col text-center">
-              <p>Don't have Mist Games account? <a href="" class="underline">Sign Up</a></p>
-              <p>Back to <a href="" class="underline">home</a></p>
+              <p>You want to cancel? <a href="" class="underline">Yes</a></p>
           </div>
           </form>
     </div>
 </body>
+
 </html>
