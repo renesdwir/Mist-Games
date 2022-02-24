@@ -43,7 +43,7 @@ class GameController{
       .then(game => {
         game.size = Game.formatSize(game.size)
         console.log(login)
-        res.render('gameDetail', { game, page, login })
+        res.render('gamedetail', { game, page, login })
       })
       .catch(err => {
         res.send(err)
