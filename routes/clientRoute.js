@@ -4,6 +4,7 @@ const UserController = require('../controllers/UserController')
 const GameController = require('../controllers/GameController')
 
 clientRouter.get('/', UserController.getClient)
+clientRouter.get('/userDetail')
 clientRouter.get('/shop', GameController.getGames)
 clientRouter.get('/shop/:GameId', GameController.getGameDetail)
 clientRouter.get('/shop/:GameId/buy', GameController.getBuyGame)

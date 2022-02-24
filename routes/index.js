@@ -18,5 +18,15 @@ router.use(isLoggedIn)
 
 router.use('/clients', isClient, clientRouter)
 router.use('/admins', isAdmin, adminRouter)
+router.use('/logout', (req, res) => {
+  req.session.destroy((err) => {
+    if(err){
+      res.send(err)
+      return
+    }
+      res.redirect('/');
+    })
+    
+})
 
 module.exports = router

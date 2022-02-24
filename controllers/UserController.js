@@ -1,5 +1,5 @@
 const { User, Game, UserGame, UserDetail } = require('../models')
-const { compare } = require('../helper/bcrypt')
+const { compare } = require('../helper/bcrypt');
 
 class UserController{
   static getHome(req, res) {
@@ -78,9 +78,70 @@ class UserController{
         res.send(err)
       })
   }
+  static getUserDetail(req, res) {
+    const { UserId } = req.session;
+    const include = {
+      model: User,
+      where: {
+        id: UserId
+      }
+    }
+    UserDetail.findOne({ include })
+      .then(userDetail => {
+        if(!userDetail){
+          res.render('adduserdetail')
+        }
+        res.render('userdetail', { userDetail })
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+  static postAddUserDetail(req, res){
+    const { UserId } = req.session;
+    const { firstName, lastName, email, country } = req.body;
+    UserDetail.create({ firstName, lastName, email, country, UserId })
+      .then(() => {
+        res.redirect('/clients/userDetail')
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+  static getEditUserDetail(req, res) {
+    const { UserId } = req.session;
+    const include = {
+      model: User,
+      where: {
+        id: UserId
+      }
+    }
+    UserDetail.findOne({ include })
+      .then(userDetail => {
+        if(!userDetail){
+          res.render('adduserdetail')
+        }
+        res.render('edituserdetail', { userDetail })
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
+  static postAddUserDetail(req, res){
+    const { UserId } = req.session;
+    const { firstName, lastName, email, country } = req.body;
+    UserDetail.update({ firstName, lastName, email, country, UserId })
+      .then(() => {
+        res.redirect('/clients/userDetail')
+      })
+      .catch(err => {
+        res.send(err)
+      })
+  }
   static getMyGames(req, res){
     const { UserId } = req.session;
     const page = 'mygames'
+    const login = 'true'
     User.findByPk(UserId, {
       include: {
         model: Game
@@ -88,7 +149,7 @@ class UserController{
     })
     .then(user => {
       const games = user.Games
-      res.render('mygames', { user, page, games })
+      res.render('mygames', { user, page, games, login })
     })
     .catch(err => {
       res.send(err)
