@@ -11,7 +11,7 @@
            <input type="search" name="search" placeholder="Search title game" class="rounded-lg w-80">
            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Search Now</button>
        </form>
-       <form action="" class="mt-auto hidden"> <!--Admin-->
+       <form  class="mt-auto <%=user.role === "admin" ? "" : "hidden"%>"> <!--Admin-->
         <button type="button" class=" text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add Game</button>
        </form>
    </div>
