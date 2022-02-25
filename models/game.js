@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const accounting = require('accounting-js')
 module.exports = (sequelize, DataTypes) => {
   class Game extends Model {
     /**
@@ -11,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static formatSize(num) {
       num = num / 1000
-      return (Math.floor(num * 100) / 100) + 'GB'
+      return accounting.toFixed(num, 2) + 'GB'
     }
 
     get formatRupiah() {
